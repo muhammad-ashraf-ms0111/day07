@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,32 +8,42 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 
 
 public class classExercise {
 
 public static void main(String[] args) throws FileNotFoundException, IOException {
-  
-  BufferedReader br = new BufferedReader(new FileReader("googleplaystore.csv"));
-  br.lines()
-  //skip the header
-      .skip(1)
-      //String -> String[]
-        .map(lines -> lines.split (","))
-        //keep below row 13
-        .map(cols -> { 
-          if (cols.length <= 14)
-          return cols;
-          return cols;})
-        //remove nan
-         .filter(cols -> !cols[2].trim().toLowerCase().equals("nan"))
-         ;
+  //parsing a CSV file into Scanner class constructor  
+Scanner sc = new Scanner(new File("googleplaystore.csv"));  
+sc.useDelimiter(",");   //sets the delimiter pattern  
+while (sc.hasNext())  //returns a boolean value  
+{  
+System.out.print(sc.next());  //find and returns the next complete token from this scanner  
+}   
+sc.close();  //closes the scanner  
 }  
-} 
+
+  
+}  
+ 
 
 
-
+// BufferedReader br = new BufferedReader(new FileReader("googleplaystore.csv"));
+  // br.lines()
+  // //skip the header
+  //     .skip(1)
+  //     //String -> String[]
+  //       .map(lines -> lines.split (","))
+  //       //keep below row 13
+  //       .map(cols -> { 
+  //         if (cols.length <= 14)
+  //         return cols;
+  //         return cols;})
+  //       //remove nan
+  //        .filter(cols -> !cols[2].trim().toLowerCase().equals("nan"))
+  //        ;
 
 
 
