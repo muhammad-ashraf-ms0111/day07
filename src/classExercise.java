@@ -1,21 +1,63 @@
-// import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 // import java.io.File;
-// import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 // import java.io.FileReader;
-// import java.io.IOException;
+import java.io.IOException;
 // import java.nio.file.Files;
 // import java.nio.file.Paths;
 // import java.util.ArrayList;
 // import java.util.Arrays;
 // import java.util.List;
 // import java.util.Scanner;
+import java.io.FileReader;
 
 
 
-// public class classExercise {
+public class classExercise {
 
-// public static void main(String[] args) throws FileNotFoundException, IOException {
-//   //parsing a CSV file into Scanner class constructor  
+public static void main(String[] args) {
+
+String path = "googleplaystore.csv";
+String line = "";
+try {
+  BufferedReader br = new BufferedReader(new FileReader(path));
+  while((line = br.readLine())!= null){
+    String[]values = line.split(",");
+    System.out.println(values[0]+" " + values[1]+" " +values[3]);
+  }
+
+} catch (IOException e) {
+  e.printStackTrace();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+}
+
+
+  //   //parsing a CSV file into Scanner class constructor  
 // Scanner sc = new Scanner(new File("googleplaystore.csv"));  
 // sc.useDelimiter(",");   //sets the delimiter pattern  
 // while (sc.hasNext())  //returns a boolean value  
